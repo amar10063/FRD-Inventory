@@ -1,0 +1,119 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="card-body pull-right p-1">
+      <button class="btn btn-success btn-sm"><i class="fa fa-plus-square-o" aria-hidden="true"></i>New</button>
+      <button class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button>
+      <button class="btn btn-success btn-sm"><i class="fa fa-floppy-o" aria-hidden="true"></i>Save</button>
+      <button class="btn btn-success btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button>
+      <button class="btn btn-success btn-sm"><i class="fa fa-undo" aria-hidden="true"></i>Back</button>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-rose card-header-icon">
+            <div class="card-text">
+              <h4 class="card-title">Assign Role</h4>
+            </div>
+            <h4 class="card-title"></h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-2 p-0">
+                <kendo-treeview [nodes]="data1"
+                                textField="text"
+                                kendoTreeViewExpandable
+                                kendoTreeViewSelectable
+                                kendoTreeViewHierarchyBinding
+                                childrenField="items">
+                </kendo-treeview>
+                <kendo-treeview [nodes]="data2"
+                                textField="text"
+                                kendoTreeViewExpandable
+                                kendoTreeViewSelectable
+                                kendoTreeViewHierarchyBinding
+                                childrenField="items">
+                </kendo-treeview>
+                <kendo-treeview [nodes]="data3"
+                                textField="text"
+                                kendoTreeViewExpandable
+                                kendoTreeViewSelectable
+                                kendoTreeViewHierarchyBinding
+                                childrenField="items">
+                </kendo-treeview>
+              </div>
+              <div class="col-md-10" style="border-left: 1px solid #09a777;background-color: #ececec;">
+
+
+
+
+                <div class="col-md-12">
+                  <div class="row pl-1">
+                    <div class="col-md-9 mt-2 p-0">
+                      <h5 style="color: #09a777;">Assigned Roles</h5>
+                    </div>
+                    <div class="col-md-3 pl-0 pt-2">
+                      <div class="col-md-12 col-sm-12 pull-right p-0 mailBox">
+                        <div class="dropdown">
+                          <div class="form-group">
+                            <select class="selectpicker pull-right p-1" data-style="select-with-transition" title="" data-size="7">
+                              <option value="1"> abc@gmail.com</option>
+                              <option value="2">def@gmail.com </option>
+                              <option value="3">ghi@gmail.com</option>
+                              <option value="4">jkl@gmail.com</option>
+
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+                          </div>
+
+
+                        </div>
+                      </div>
+
+                <div class="col-md-12">
+                  <div class="row pl-2">
+                    <div class="col-md-6">
+                      <kendo-treeview [nodes]="data4"
+                                      textField="text"
+                                      kendoTreeViewExpandable
+                                      kendoTreeViewSelectable
+                                      kendoTreeViewHierarchyBinding
+                                      childrenField="items">
+                      </kendo-treeview>..
+                    </div>
+                    <div class="col-md-6">
+                      
+                    </div>
+
+
+                  </div>
+                </div>
+
+
+
+                <div class="col-md-12">
+                  <div class="row pl-3">
+                    <div class="col-md-6">
+
+                    </div>
+                    <div class="col-md-6">
+                      <button class="btn btn-success btn-sm pull-right"><i class="" aria-hidden="true"></i>Finish</button>
+                    </div>
+
+
+                  </div>
+                </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
