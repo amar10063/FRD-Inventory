@@ -14,15 +14,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-
-import { UserComponent } from './user/user.component';
-import { RoleComponent } from './role/role.component';
-import { RoleAssignmentComponent } from './role-assignment/role-assignment.component';
-import { LineToFgWarehouseComponent } from './line-to-fg-warehouse/line-to-fg-warehouse.component';
-import { StillageToStillageComponent } from './stillage-to-stillage/stillage-to-stillage.component';
 import { LoginComponent } from './login/login.component';
 import { RequestControlComponent } from './request-control/request-control.component';
 import { ItemRequestComponent } from './item-request/item-request.component';
@@ -34,14 +25,7 @@ import { TransferOrderComponent } from './transfer-order/transfer-order.componen
     HomeComponent,
     DashboardComponent,
     HeaderComponent,
-    FooterComponent, 
-    CounterComponent,
-    FetchDataComponent, 
-    UserComponent,
-    RoleComponent,
-    RoleAssignmentComponent,
-    LineToFgWarehouseComponent,
-    StillageToStillageComponent,
+    FooterComponent,     
     RequestControlComponent,
     ItemRequestComponent,
     TransferOrderComponent,
@@ -56,14 +40,7 @@ import { TransferOrderComponent } from './transfer-order/transfer-order.componen
       { path: 'itemRequest', component: ItemRequestComponent },
       { path: 'requestControl', component: RequestControlComponent },
       { path: 'transferOrder', component: TransferOrderComponent },
-      { path: 'dashboard', component: DashboardComponent },
- 
-      { path: 'create-user', component: UserComponent },
-      { path: 'create-role', component: RoleComponent },
-      { path: 'role-assignment', component: RoleAssignmentComponent },
-      { path: 'fg-warehouse', component: LineToFgWarehouseComponent },
-      { path: 'stillage-to-stillage', component: StillageToStillageComponent },
-    
+      { path: 'dashboard', component: DashboardComponent },  
       { path: 'login', component: LoginComponent },
      ])
   ],

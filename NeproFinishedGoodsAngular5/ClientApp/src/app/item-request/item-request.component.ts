@@ -24,7 +24,7 @@ export class ItemRequestComponent {
   columnDefs = [
     { headerName: "All", checkboxSelection: true, field: "all", width: 60 },
     { headerName: 'Item No.', field: 'itemno', sortable: true, filter: true, width: 90 },
-    { headerName: 'Product Name', field: 'productname', sortable: true, filter: true, width: 110 },
+    { headerName: 'Product Name', field: 'productname', sortable: true, filter: true, width: 120 },
     { headerName: 'Product Name in Arabic', field: 'productnameArabic', sortable: true, filter: true, width: 170 },
     { headerName: 'Item Comment', field: 'itemcomment', sortable: true, filter: true, width: 130 },
     { headerName: 'Site', field: 'siteRequestedQuantity', sortable: true, filter: true, width: 80 },
