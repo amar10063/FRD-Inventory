@@ -18,6 +18,8 @@ import { LoginComponent } from './login/login.component';
 import { RequestControlComponent } from './request-control/request-control.component';
 import { ItemRequestComponent } from './item-request/item-request.component';
 import { TransferOrderComponent } from './transfer-order/transfer-order.component';
+import { DummyComponent } from './dummy/dummy.component';
+import { UserComponent } from './user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import { TransferOrderComponent } from './transfer-order/transfer-order.componen
     RequestControlComponent,
     ItemRequestComponent,
     TransferOrderComponent,
-    LoginComponent
+    LoginComponent,
+    DummyComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -40,8 +44,10 @@ import { TransferOrderComponent } from './transfer-order/transfer-order.componen
       { path: 'itemRequest', component: ItemRequestComponent },
       { path: 'requestControl', component: RequestControlComponent },
       { path: 'transferOrder', component: TransferOrderComponent },
-      { path: 'dashboard', component: DashboardComponent },  
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'dummy', component: DummyComponent },  
       { path: 'login', component: LoginComponent },
+      { path: 'user', component: UserComponent },
      ])
   ],
   providers: [],

@@ -63,7 +63,7 @@
         </a>
       </li>
 
- 
+
       <li class="nav-item " [routerLinkActive]='["active"]'>
         <a class="nav-link" [routerLink]='["/itemRequest"]' (click)='collapse()'>
           <i class="material-icons"> <img src="../../assets/img/user_icon.png" /></i>
@@ -71,8 +71,8 @@
         </a>
 
       </li>
-  
-  
+
+
       <li class="nav-item " [routerLinkActive]='["active"]'>
         <a class="nav-link" [routerLink]='["/requestControl"]' (click)='collapse()'>
           <i class="sidebar-mini">
@@ -89,7 +89,14 @@
           <p> Transfer Order </p>
         </a>
       </li>
-
+      <li class="nav-item " [routerLinkActive]='["active"]'>
+        <a class="nav-link" [routerLink]='["/user"]' (click)='collapse()'>
+          <i class="sidebar-mini">
+            <img src="../../assets/img/user_icon.png" />
+          </i>
+          <p> User </p>
+        </a>
+      </li>
     </ul>
   </div>
 </div>
