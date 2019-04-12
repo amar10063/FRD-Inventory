@@ -18,6 +18,7 @@ namespace FRDInventory.Controllers
         public int CreateUser([FromBody] TblUserLogin user)
         {
             return dbAccess.AddUser(user);
+
         }
 
     }
