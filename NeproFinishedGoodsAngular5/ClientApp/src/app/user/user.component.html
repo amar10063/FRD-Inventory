@@ -2,9 +2,9 @@
   <div class="container-fluid">
     <div class="card-body pull-right p-1">
 
-      <button class="btn btn-success btn-sm" (click)="showhide()"><i class="fa fa-plus-square-o" aria-hidden="true"></i>New</button>
+      <button class="btn btn-success btn-sm" ><i class="fa fa-plus-square-o" aria-hidden="true"></i>New</button>
       <!--<button class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</button>-->
-      <button class="btn btn-success btn-sm" (click)="showhide2()"><i class="fa fa-floppy-o" aria-hidden="true"></i>Submit</button>
+      <button class="btn btn-success btn-sm" (click)="userSubmit()"><i class="fa fa-floppy-o" aria-hidden="true"></i>Submit</button>
       <!--<button class="btn btn-success btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button>-->
       <button class="btn btn-success btn-sm"><i class="fa fa-undo" aria-hidden="true"></i>Back</button>
     </div>
@@ -17,16 +17,17 @@
     <div class="container-fluid">
 
       <div class="clearfix"></div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card ">
-            <div class="card-header card-header-rose card-header-text">
-              <div class="card-text">
-                <h4 class="card-title">User Form</h4>
+      <form class="form-horizontal" [formGroup]="userForm">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-header card-header-rose card-header-text">
+                <div class="card-text">
+                  <h4 class="card-title">User Form</h4>
+                </div>
               </div>
-            </div>
-            <div class="card-body ">
-              <form method="get" class="form-horizontal">
+              <div class="card-body ">
+                <!--<form  class="form-horizontal"  [formGroup]="userForm">-->
                 <div class="container">
                   <div class="row mb-2">
                     <div class="col-md-6">
@@ -35,7 +36,10 @@
                         <label class="col-sm-3 col-md-4 col-form-label">User Name</label>
                         <div class="col-sm-8 col-md-8">
                           <div class="form-group">
-                            <input type="text" class="form-control" placeholder="">
+                            <input type="text" class="form-control" placeholder="" formControlName="username" [ngClass]="{'is-invalid': submitted && f.username.errors}">
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                              <div *ngIf="f.username.errors.required">* Username is required</div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -45,7 +49,11 @@
                         <label class="col-sm-2  col-md-4 col-form-label">E-mail</label>
                         <div class="col-sm-9 col-md-8">
                           <div class="form-group">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" formControlName="email" [ngClass]="{'is-invalid': submitted && f.email.errors}">
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                              <div *ngIf="f.email.errors.required">* E-mail is required</div>
+                              <div *ngIf="f.email.errors.email">* valid email is required</div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -55,31 +63,36 @@
                         <label class="col-sm-3 col-md-4 col-form-label">Password</label>
                         <div class="col-sm-8 col-md-8">
                           <div class="form-group">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" formControlName="password" [ngClass]="{'is-invalid': submitted && f.password.errors}">
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                              <div *ngIf="f.password.errors.required">* Password is required</div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="col-md-6">
-
-
                       <div class="row">
                         <label class="col-sm-3 col-md-4 col-form-label">User Pin</label>
                         <div class="col-sm-8 col-md-8">
                           <div class="form-group">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" formControlName="userpin" [ngClass]="{'is-invalid': submitted && f.userpin.errors}">
+                            <div *ngIf="submitted && f.userpin.errors" class="invalid-feedback">
+                              <div *ngIf="f.userpin.errors.required">* User Pin is required</div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="col-md-6">
-
-
                       <div class="row">
                         <label class="col-sm-3 col-md-4 col-form-label">Confirm Password</label>
                         <div class="col-sm-8 col-md-8">
                           <div class="form-group">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" formControlName="cpassword" [ngClass]="{'is-invalid': submitted && f.cpassword.errors}">
+                            <div *ngIf="submitted && f.cpassword.errors" class="invalid-feedback">
+                              <div *ngIf="f.cpassword.errors.required">* Site is required</div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -91,23 +104,23 @@
                     </div>
                   </div>
                 </div>
-              </form>
+                <!--</form>-->
 
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card ">
-            <div class="card-header card-header-rose card-header-text">
-              <div class="card-text">
-                <h4 class="card-title">Access Rights</h4>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-header card-header-rose card-header-text">
+                <div class="card-text">
+                  <h4 class="card-title">Access Rights</h4>
+                </div>
               </div>
-            </div>
-            <div class="card-body ">
-              <form method="get" class="form-horizontal">
+              <div class="card-body ">
+
                 <div class="container">
                   <div class="row mb-2">
                     <div class="col-md-6">
@@ -116,7 +129,7 @@
                         <label class="col-sm-3 col-md-3 col-form-label">Store Picker</label>
                         <div class="col-sm-8 col-md-9">
                           <div class="form-group">
-                            <input type="checkbox" class="form-checkbox" placeholder="">
+                            <input type="checkbox" class="form-checkbox"  formControlName="cpassword" [ngClass]="{'is-invalid': submitted && f.cpassword.errors}" >
                           </div>
                         </div>
                       </div>
@@ -126,20 +139,21 @@
                         <label class="col-sm-2  col-md-3 col-form-label">Controller</label>
                         <div class="col-sm-9 col-md-9">
                           <div class="form-group">
-                            <input type="checkbox" class="form-checkbox">
+                            <input type="checkbox" class="form-checkbox"  formControlName="cpassword" [ngClass]="{'is-invalid': submitted && f.cpassword.errors}">
                           </div>
                         </div>
                       </div>
                     </div>
-                  
+
                   </div>
                 </div>
-              </form>
 
+
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>

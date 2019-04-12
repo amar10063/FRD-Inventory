@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl, FormsModule  } from '@angular/forms';
 @Component({
     selector: 'app-user',
     templateUrl: './user.component.html'
   
 })
 /** user component*/
-export class UserComponent {
+export class UserComponent implements OnInit{
     /** user ctor */
-    constructor() {
+  userForm: FormGroup;
+  submitted = false;
+  constructor(private formbuilder: FormBuilder) {
 
   }
   columnDefs = [
@@ -38,4 +40,30 @@ export class UserComponent {
     { all: " ", checkboxSelection: true, itemno: '6', productname: 'Chilly', productnameArabic: 'qqqqq', itemcomment: '200', siteRequestedQuantity: '150', warehouse: '20', unit: 'kg', requestedAvailability: '50', branchAvailability: '30', requestedQuantity: '100', attachment: 'Doc19998', status: 'Active', transferOrderNo: 'TON19998' },
 
   ];
+
+
+  
+  ngOnInit() {
+    this.userForm = this.formbuilder.group({
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      userpin: ['', Validators.required],
+      cpassword: ['', Validators.required]
+    });
+
+
+  }
+  userSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.userForm.invalid) {
+      return;
+    }
+
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.userForm.value));
+
+  }
+  get f() { return this.userForm.controls; }
 }
