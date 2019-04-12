@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl  } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl, FormsModule  } from '@angular/forms';
 @Component({
     selector: 'app-user',
     templateUrl: './user.component.html'
   
 })
 /** user component*/
-export class UserComponent {
+export class UserComponent implements OnInit{
     /** user ctor */
+  userForm: FormGroup;
+  submitted = false;
   constructor(private formbuilder: FormBuilder) {
 
   }
@@ -40,12 +42,11 @@ export class UserComponent {
   ];
 
 
-  userForm: FormGroup;
-  submitted = false;
+  
   ngOnInit() {
     this.userForm = this.formbuilder.group({
       username: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       userpin: ['', Validators.required],
       cpassword: ['', Validators.required]
