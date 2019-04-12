@@ -26,5 +26,6 @@ namespace FRDInventory.Models
         public string UserName { get; set; }
         public bool StorePicker { get; set; }
         public bool InventoryController { get; set; }
+
     }
 }
