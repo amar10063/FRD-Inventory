@@ -10670,13 +10670,10 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
     position: relative
   }
 .card .card-body .form-group {
-	margin: 8px 0 0;
+	margin: 0px 0 0;
   z-index:10;
 }
-    .card .card-body .form-group {
-      margin: 8px 0 0;
-      z-index: 10;
-    }
+   
 .card .card-header {
 	z-index: 3!important
 }
@@ -11368,7 +11365,7 @@ filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
 }
 }
 .card .card-body .col-form-label, .card .card-body .label-on-right {
-  padding: 17px 5px 0 0;
+  padding: 7px 5px 0 0;
   text-align: left;
   color: #393939;
   font-weight: 300;
