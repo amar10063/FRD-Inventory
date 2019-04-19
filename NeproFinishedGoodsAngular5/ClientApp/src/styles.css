@@ -131,3 +131,12 @@ select.selectpicker option:hover {
 .form-checkbox {
   margin-top: 12px;
 }
+.accessrights {
+  border: 1px solid #ddd9d9;
+  border-radius: 5px;
+}
+.rights {
+  line-height: 45px;
+  font-size: 14px;
+  color: #6c6868;
+}
