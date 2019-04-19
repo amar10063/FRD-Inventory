@@ -14,7 +14,7 @@ import { Http } from '@angular/http';
 /** Login component*/
 export class LoginComponent implements OnInit {
   myAppUrl: string = "";
-  responcelogin: ResponceLogin// = new ResponceLogin();
+  responcelogin: GetLogin;
   public href: string = "";
   userForm: FormGroup;
   submitted = false;
@@ -40,8 +40,7 @@ export class LoginComponent implements OnInit {
 
 
   LoginUser() {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.userForm.value));
-
+    
     if (!this.userForm.valid) {
       return;
     }
@@ -49,16 +48,15 @@ export class LoginComponent implements OnInit {
 
     this.http.post(this.myAppUrl + 'api/controller/Login', this.userForm.value)
       .subscribe(data => {
-        this.responcelogin = data._body;
-       
-
-        if (data._body == "success") {        
+      
+        if (data['_body'] == "success") {
           this._router.navigate(['/itemRequest']);
-          debugger;
+         
+          
         }
         else {
 
-          alert(data._body);
+          alert(data['_body']);
         }    
     }, error => this.errorHandler = error)
 
@@ -78,9 +76,10 @@ export class LoginComponent implements OnInit {
 
 }
 
- class ResponceLogin
+export class GetLogin
  {
-   status: any
+  _body: any
+  
   // emailId: string
 
 

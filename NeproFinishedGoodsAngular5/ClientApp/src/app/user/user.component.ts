@@ -26,7 +26,8 @@ export class UserComponent implements OnInit{
       EmailId: ['', Validators.required],
       password: ['', Validators.required],
       userpin: ['', Validators.required],
-      cpassword: ['', Validators.required]
+      StorePicker: ['', Validators.required],
+      InventoryController: ['', Validators.required]
     });
 
 
@@ -54,10 +55,11 @@ export class UserComponent implements OnInit{
    
     this._employeeService.saveUser(this.userForm.value)
       .subscribe(() => {
-        
         alert('Data saved Successfully');
         this.userForm.reset();
-      });    
+       
+      });
+    
     
    
   }
