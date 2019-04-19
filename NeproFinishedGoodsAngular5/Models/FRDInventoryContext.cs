@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Configuration;
 
 namespace FRDInventory.Models
 {
@@ -17,18 +16,12 @@ namespace FRDInventory.Models
         }
 
         public virtual DbSet<TblUserLogin> TblUserLogin { get; set; }
-
+       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                IConfigurationRoot configuration = new ConfigurationBuilder()
-           .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-           .AddJsonFile("appsettings.json")
-           .Build();
-
-
-                optionsBuilder.UseSqlServer(configuration.GetConnectionString("FRDInventoryContext"));
+                optionsBuilder.UseSqlServer("Server=10.10.10.53;Database=FRDInventory;User ID=sa;Password=frd@amy210;");
             }
         }
 
@@ -57,10 +50,7 @@ namespace FRDInventory.Models
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.HostAddress)
-                    .HasColumnName("Host_Address")
-                    .HasMaxLength(25)
-                    .IsUnicode(false);
+                entity.Property(e => e.InventoryController).HasMaxLength(100);
 
                 entity.Property(e => e.IsActive)
                     .IsRequired()
@@ -74,7 +64,9 @@ namespace FRDInventory.Models
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.RefrenceId).HasColumnName("RefrenceID");
+                entity.Property(e => e.Receiver).HasMaxLength(100);
+
+                entity.Property(e => e.StorePicker).HasMaxLength(100);
 
                 entity.Property(e => e.UpdatedById)
                     .HasColumnName("UpdatedByID")
@@ -92,8 +84,6 @@ namespace FRDInventory.Models
                 entity.Property(e => e.UserRole)
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.Property(e => e.UserRoleId).HasColumnName("UserRoleID");
             });
         }
     }

@@ -1,4 +1,20 @@
-﻿
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Web;
+
+
+//namespace Banking_System.AppCode
+//{
+//    public class DbSecurity
+//    {
+//    }
+//}
+
+
+
+
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

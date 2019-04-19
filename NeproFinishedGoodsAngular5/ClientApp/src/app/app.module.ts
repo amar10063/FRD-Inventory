@@ -20,6 +20,8 @@ import { ItemRequestComponent } from './item-request/item-request.component';
 import { TransferOrderComponent } from './transfer-order/transfer-order.component';
 import { DummyComponent } from './dummy/dummy.component';
 import { UserComponent } from './user/user.component';
+import { UserAccount } from './Services/AccountService';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,7 @@ import { UserComponent } from './user/user.component';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule, AgGridModule.withComponents([]),
+    HttpClientModule, HttpModule, AgGridModule.withComponents([]),
     FormsModule, ReactiveFormsModule, BrowserAnimationsModule, TreeViewModule,
     RouterModule.forRoot([
       { path: '', component: ItemRequestComponent, pathMatch: 'full' },
@@ -51,7 +53,7 @@ import { UserComponent } from './user/user.component';
       { path: 'user', component: UserComponent },
      ])
   ],
-  providers: [],
+  providers: [UserAccount],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

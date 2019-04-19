@@ -13,7 +13,7 @@ namespace FRDInventory.Controllers
     [ApiController]
     public class LoginController : Controller
     {
-        FRDInventoryContext db = new FRDInventoryContext();
+         FRDInventoryContext db = new FRDInventoryContext();
         [Produces("application/json")]
         [HttpGet("get")]
         public async Task<IActionResult> login()
@@ -23,7 +23,8 @@ namespace FRDInventory.Controllers
                 var result = db.TblUserLogin.FromSql("xsxs").ToList();
                 return Ok(result);
             }
-            catch {
+            catch
+            {
                 return BadRequest();
 
 
