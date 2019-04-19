@@ -31,17 +31,14 @@ namespace FRDInventory.Models
 
                         pass = DbSecurity.Encrypt(user.Password, ref pwdKey);
                     }
-                    if (user.EmailId == null)
+                  
+                    if (Convert.ToBoolean( user.StorePicker) ==true)
                     {
-                        user.EmailId = " ";
+                        user.StorePicker = "1";
                     }
-                    if (user.StorePicker == null)
+                    if (Convert.ToBoolean(user.InventoryController) == true)
                     {
-                        user.StorePicker = " ";
-                    }
-                    if (user.InventoryController == null)
-                    {
-                        user.InventoryController = " ";
+                        user.InventoryController = "1";
                     }
                    
                     db.Database.ExecuteSqlCommand(@"Sp_DeviceUser @QueryType,@UserName,@EmailId,@Password,@PasswordKey, @UserPin,@StorePicker,@Controller",
@@ -76,34 +73,7 @@ namespace FRDInventory.Models
                     new SqlParameter("@QueryType", "UserAccess"),
                     new SqlParameter("@Emailid", user.EmailId)
                     ).ToList();
-                //if (list.Count > 0)
-                //{
-                //    foreach (var value in list)
-                //    {
-                //        getPass = DbSecurity.Decrypt(value.Password, value.PasswordKey);
-                //        getEmail = value.EmailId;
-
-                //    }
-
-                //    if (getPass == user.Password)
-                //    {
-                       
-                        
-
-                //        return 1;
-
-
-                //    }
-                //    else
-                //    {
-                //        return 0;
-                //        //message for wrong password
-                //    }
-                //}
-                //else
-                //{
-                //    //emailid or username wrong
-                //}
+               
                     return list ;
             }
             catch (Exception ex)
