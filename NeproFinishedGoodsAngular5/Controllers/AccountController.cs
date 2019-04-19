@@ -15,11 +15,14 @@ namespace FRDInventory.Controllers
         AccountDataAccessLayer dbAccess = new AccountDataAccessLayer();
         [HttpPost]
         [Route("api/controller/CreateUser")]
-        public int CreateUser([FromBody]TblUserLogin user)
+        public List<TblUserLogin> CreateUser([FromBody]TblUserLogin user)
         {
            
 
-            return dbAccess.AddUser(user);
+             dbAccess.AddUser(user);
+
+
+            return dbAccess.BindGrid();
 
         }
 

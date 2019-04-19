@@ -16,7 +16,9 @@ namespace FRDInventory.Models
         }
 
         public virtual DbSet<TblUserLogin> TblUserLogin { get; set; }
+        
        
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
