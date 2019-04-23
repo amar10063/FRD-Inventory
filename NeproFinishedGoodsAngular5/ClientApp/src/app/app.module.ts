@@ -18,6 +18,11 @@ import { LoginComponent } from './login/login.component';
 import { RequestControlComponent } from './request-control/request-control.component';
 import { ItemRequestComponent } from './item-request/item-request.component';
 import { TransferOrderComponent } from './transfer-order/transfer-order.component';
+import { DummyComponent } from './dummy/dummy.component';
+import { UserComponent } from './user/user.component';
+import { UserAccount } from './Services/AccountService';
+import { HttpModule } from '@angular/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,22 +34,26 @@ import { TransferOrderComponent } from './transfer-order/transfer-order.componen
     RequestControlComponent,
     ItemRequestComponent,
     TransferOrderComponent,
-    LoginComponent
+    LoginComponent,
+    DummyComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule, AgGridModule.withComponents([]),
+    HttpClientModule, HttpModule, AgGridModule.withComponents([]),
     FormsModule, ReactiveFormsModule, BrowserAnimationsModule, TreeViewModule,
     RouterModule.forRoot([
       { path: '', component: ItemRequestComponent, pathMatch: 'full' },
       { path: 'itemRequest', component: ItemRequestComponent },
       { path: 'requestControl', component: RequestControlComponent },
       { path: 'transferOrder', component: TransferOrderComponent },
-      { path: 'dashboard', component: DashboardComponent },  
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'dummy', component: DummyComponent },  
       { path: 'login', component: LoginComponent },
+      { path: 'user', component: UserComponent },
      ])
   ],
-  providers: [],
+  providers: [UserAccount],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

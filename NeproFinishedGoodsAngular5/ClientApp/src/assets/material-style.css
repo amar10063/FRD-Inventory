@@ -7345,10 +7345,10 @@ a.text-dark:focus, a.text-dark:hover {
 	border-radius: .2rem
 }
 .btn-group-sm .btn, .btn-group-sm > .btn, .btn.btn-sm {
-  padding: .21rem .5rem;
-  font-size: .6875rem;
+  padding: .11rem .3rem;
+  font-size: .6rem;
   line-height: 1.7;
-  border-radius: .2rem
+  border-radius: .2rem;
 }
 .btn.btn-round {
 	border-radius: 30px
@@ -7411,7 +7411,7 @@ a.text-dark:focus, a.text-dark:hover {
 	top: 0;
 	margin-top: -1em;
 	margin-bottom: -1em;
-	font-size: 1.1rem;
+	font-size: .9rem;
 	vertical-align: middle
 }
 .bg-inverse .btn-group-vertical.disabled, .bg-inverse .btn-group-vertical:disabled, .bg-inverse .btn-group-vertical[disabled], .bg-inverse .btn-group.disabled, .bg-inverse .btn-group:disabled, .bg-inverse .btn-group[disabled], .bg-inverse .btn.disabled, .bg-inverse .btn:disabled, .bg-inverse .btn[disabled], .bg-inverse .input-group-btn .btn.disabled, .bg-inverse .input-group-btn .btn:disabled, .bg-inverse .input-group-btn .btn[disabled], .bg-inverse fieldset[disabled][disabled] .btn, .bg-inverse fieldset[disabled][disabled] .btn-group, .bg-inverse fieldset[disabled][disabled] .btn-group-vertical, .bg-inverse fieldset[disabled][disabled] .input-group-btn .btn {
@@ -8773,7 +8773,7 @@ textarea {
 .navbar {
   border: 0;
   border-radius: 3px;
-  padding: 10px 0;
+  padding: 0px 0;
   margin-bottom: 5px;
   height: auto !important;
   color: #555;

@@ -13,6 +13,7 @@ export class AppComponent {
   ngOnInit() {
     this.href1 = this.router1.url;
     console.log(this.router1.url);
+    console.log(location.origin);
   }
   
 }
