@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\Models\UserModel.ts" />
     <None Remove="ClientApp\src\app\Services\AccountService.ts" />
   </ItemGroup>
 
@@ -43,6 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\Models\UserModel.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Services\AccountService.ts" />
   </ItemGroup>
 
