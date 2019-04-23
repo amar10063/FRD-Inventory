@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormsModule } from '@angular/forms';
 import { UserAccount } from '../Services/AccountService';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Http } from '@angular/http';
 
 @Component({
     selector: 'app-user',
@@ -12,10 +13,11 @@ import { Observable } from 'rxjs/Observable';
 /** user component*/
 export class UserComponent implements OnInit{
     /** user ctor */
+  myAppUrl: string = "";
   userForm: FormGroup;
   submitted = false;
-  constructor(private formbuilder: FormBuilder, private _employeeService: UserAccount, private _router: Router) {
-
+  constructor(private formbuilder: FormBuilder, private _employeeService: UserAccount, private _router: Router, private http: Http, @Inject('BASE_URL') baseUrl: string) {
+    this.myAppUrl = baseUrl;
   }
   
 
@@ -45,11 +47,16 @@ export class UserComponent implements OnInit{
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.userForm.value)); 
 
    
-    this._employeeService.saveUser(this.userForm.value)
-      .subscribe(() => {
-        alert('Data saved Successfully');
-        this.userForm.reset();
+    //this._employeeService.saveUser(this.userForm.value)
+    //  .subscribe(() => {
+    //    alert('Data saved Successfully');
+    //    this.userForm.reset();
        
+    //  });
+    this.http.post(this.myAppUrl + 'api/controller/CreateUser', this.userForm.value).subscribe((data) => {
+      alert(data['_body']);
+       this.userForm.reset();
+
       });
     
     

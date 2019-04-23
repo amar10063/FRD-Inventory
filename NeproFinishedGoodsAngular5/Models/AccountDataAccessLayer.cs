@@ -31,15 +31,22 @@ namespace FRDInventory.Models
 
                         pass = DbSecurity.Encrypt(user.Password, ref pwdKey);
                     }
-                  
-                    if (Convert.ToBoolean( user.StorePicker) ==true)
-                    {
-                        user.StorePicker = "1";
-                    }
+
+                if (Convert.ToBoolean(user.StorePicker) == true)
+                {
+                    user.StorePicker = "1";
+                }
+                else {
+                    user.StorePicker = " ";
+                }
                     if (Convert.ToBoolean(user.InventoryController) == true)
                     {
                         user.InventoryController = "1";
                     }
+                else
+                {
+                    user.InventoryController = " ";
+                }
                    
                     db.Database.ExecuteSqlCommand(@"Sp_DeviceUser @QueryType,@UserName,@EmailId,@Password,@PasswordKey, @UserPin,@StorePicker,@Controller",
                              new SqlParameter("@QueryType", "SaveBindInvetoryUser"),
@@ -81,5 +88,23 @@ namespace FRDInventory.Models
                 throw;
             }
         }
+        public List<TblUserLogin> BindGrid()
+        {
+            try            {
+
+                FRDInventoryContext db1 = new FRDInventoryContext();
+                {
+                List<TblUserLogin> list = db1.TblUserLogin.FromSql(@"SP_Login @QueryType",
+                    new SqlParameter("@QueryType", "BindUserGrid")).ToList();
+                    return list;
+                }
+            }
+            catch (Exception e) {
+                throw;
+            }
+                    }
+
     }
+    
+   
 }
