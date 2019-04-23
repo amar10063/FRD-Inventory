@@ -23,12 +23,14 @@ export class UserComponent implements OnInit{
   }
   
 
+
   
   ngOnInit() {
     this.userForm = this.formbuilder.group({
       username: ['', Validators.required],
-      EmailId: ['', Validators.required],
-      password: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      cpassword: ['', Validators.required],
       userpin: ['', Validators.required],
       StorePicker: ['', Validators.required],
       InventoryController: ['', Validators.required]
@@ -36,25 +38,16 @@ export class UserComponent implements OnInit{
 
 
   }
-  userSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.userForm.invalid) {
-      return;
-    }
-
-   
-
-  }
   get f() { return this.userForm.controls; }
 
   save() {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.userForm.value));
-
+    this.submitted = true;
+   
     if (!this.userForm.valid) {
       return;
-    }
+    }   
+
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.userForm.value)); 
 
    
     //this._employeeService.saveUser(this.userForm.value)
@@ -77,7 +70,29 @@ export class UserComponent implements OnInit{
   errorHandler(error: Response) {
     console.log(error);
     return Observable.throw(error);
-  }  
+  }
 
+
+  columnDefs1 = [
+    { headerName: "All", checkboxSelection: true, field: "all", width: 60 },
+    { headerName: 'User Name', field: 'username', sortable: true, filter: true, width: 145 },
+    { headerName: 'E-mail', field: 'email', sortable: true, filter: true, width: 170 },   
+    { headerName: 'User Pin', field: 'userpin', sortable: true, filter: true, width: 130 },
+    { headerName: 'Controller', field: 'controller', sortable: true, filter: true, width: 160 },
+    { headerName: 'Store Picker', field: 'storepicker', sortable: true, filter: true, width: 180 },
+    { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 80 }
+
+
+
+  ];
+
+  rowData1 = [
+    { all: " ", checkboxSelection: true, username: 'Amar', email: 'amar@gmail.com', userpin: '12345', controller: 'Y', storepicker: 'N',  status: 'Active' },
+    { all: " ", checkboxSelection: true, username: 'Amar', email: 'amar@gmail.com', userpin: '12345', controller: 'Y', storepicker: 'N', status: 'Active' },
+    { all: " ", checkboxSelection: true, username: 'Amar', email: 'amar@gmail.com', userpin: '12345', controller: 'Y', storepicker: 'N', status: 'Active' },
+    { all: " ", checkboxSelection: true, username: 'Amar', email: 'amar@gmail.com', userpin: '12345', controller: 'Y', storepicker: 'N', status: 'Active' },
+    { all: " ", checkboxSelection: true, username: 'Amar', email: 'amar@gmail.com', userpin: '12345', controller: 'Y', storepicker: 'N', status: 'Active' },
+    
+  ];
 }
 
