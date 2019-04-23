@@ -4,6 +4,7 @@ import { UserAccount } from '../Services/AccountService';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
+import { UserModel } from '../Models/UserModel';
 
 @Component({
     selector: 'app-user',
@@ -13,6 +14,7 @@ import { Http } from '@angular/http';
 /** user component*/
 export class UserComponent implements OnInit{
     /** user ctor */
+  UserRes: UserModel[];
   myAppUrl: string = "";
   userForm: FormGroup;
   submitted = false;
@@ -62,7 +64,9 @@ export class UserComponent implements OnInit{
        
     //  });
     this.http.post(this.myAppUrl + 'api/controller/CreateUser', this.userForm.value).subscribe((data) => {
-      alert(data['_body']);
+      
+      this.UserRes = data['_body'];
+      alert(this.UserRes);
        this.userForm.reset();
 
       });
