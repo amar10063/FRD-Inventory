@@ -81,7 +81,14 @@
           <p> Request Control </p>
         </a>
       </li>
- 
+      <li class="nav-item " [routerLinkActive]='["active"]'>
+        <a class="nav-link" [routerLink]='["/item-request-receive"]' (click)='collapse()'>
+          <i class="sidebar-mini">
+            <img src="../../assets/img/warehouse_icon.png" />
+          </i>
+          <p> Item Request Receive </p>
+        </a>
+      </li>
       <li class="nav-item " [routerLinkActive]='["active"]'>
         <a class="nav-link" [routerLink]='["/user"]' (click)='collapse()'>
           <i class="sidebar-mini">
