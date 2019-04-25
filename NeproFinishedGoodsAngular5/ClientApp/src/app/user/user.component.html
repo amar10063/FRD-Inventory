@@ -18,7 +18,9 @@
 
       <div class="clearfix"></div>
       <!--<form class="form-horizontal" [formGroup]="userForm">-->
+
         <div class="row" *ngIf="show">
+
           <div class="col-md-12">
             <div class="card ">
               <div class="card-header card-header-rose card-header-text">
@@ -49,10 +51,12 @@
                         <label class="col-sm-2  col-md-4 col-form-label">E-mail</label>
                         <div class="col-sm-9 col-md-8">
                           <div class="form-group">
+
                             <input type="text" class="form-control" formControlName="emailid" [ngClass]="{'is-invalid': submitted && f.emailid.errors}">
                             <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
                               <div *ngIf="f.emailid.errors.required">* Email Id is required</div>
                               <div *ngIf="f.emailid.errors.email">* Email Id must be at least 6 characters</div>
+
                             </div>
                           </div>
                         </div>
@@ -104,6 +108,7 @@
 
 
                     </div>
+
 
                     <div class="container accessrights">
                       <div class="row ">
@@ -169,6 +174,25 @@
 
                 
 
+
+
+      <!--</form>-->
+      <div class="row  mb-5">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-rose card-header-icon">
+              <div class="card-text">
+                <h4 class="card-title">All Users</h4>
+              </div>
+              <h4 class="card-title"></h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+
+                <ag-grid-angular style="width:100%; height: auto"
+                                 class="ag-theme-balham"
+                                 [rowData]="rowData1"
+                                 [columnDefs]="columnDefs1"></ag-grid-angular>
 
               </div>
             </div>

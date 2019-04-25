@@ -46,7 +46,9 @@ export class UserComponent implements OnInit{
   ngOnInit() {
     this.userForm = this.formbuilder.group({
       username: ['', Validators.required],
+
       emailid: ['', [Validators.required, Validators.email]],
+
       password: ['', [Validators.required, Validators.minLength(6)]],
       cpassword: ['', Validators.required],
       userpin: ['', Validators.required],
@@ -54,8 +56,10 @@ export class UserComponent implements OnInit{
       InventoryController: ['', Validators.required]
        
     });
+
     
     this.BindUserGrid();
+
   }
   get f() { return this.userForm.controls; }
 
@@ -64,7 +68,9 @@ export class UserComponent implements OnInit{
    
     if (!this.userForm.valid) {
       return;
+
     } 
+
     //this._employeeService.saveUser(this.userForm.value)
     //  .subscribe(() => {
     //    alert('Data saved Successfully');
@@ -124,6 +130,7 @@ export class UserComponent implements OnInit{
   }
 
 
+
   columnDefs1 = [
     { headerName: "All", checkboxSelection: true, field: "all", width: 60 },
     { headerName: 'User Name', field: 'userName', sortable: true, filter: true, width: 200 },
@@ -136,4 +143,5 @@ export class UserComponent implements OnInit{
 
   rowData1 = [];
  }
+
 
