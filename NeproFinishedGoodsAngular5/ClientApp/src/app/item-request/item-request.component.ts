@@ -22,24 +22,28 @@ export class ItemRequestComponent {
     //alert(this.hide);
   }
   columnDefs = [
-    { headerName: "All", checkboxSelection: true, field: "all", width: 60 },
-    { headerName: 'Item No.', field: 'itemno', sortable: true, filter: true, width: 90 },
-    { headerName: 'Item Name', field: 'productname', sortable: true, filter: true, width: 150 },
-    { headerName: 'Item Name in Arabic', field: 'productnameArabic', sortable: true, filter: true, width: 170 },
-    { headerName: 'To Warehouse', field: 'toWarehouse', sortable: true, filter: true, width: 160 },
-    { headerName: 'Required Quantity', field: 'requiredQuantity', sortable: true, filter: true, width: 190 },   
-    { headerName: 'Reason', field: 'reason', sortable: true, filter: true, width: 115 },
-
+    { headerName: "All", checkboxSelection: true, field: "all", editable:true, width: 60 },
+    { headerName: 'Item No.', field: 'itemno', sortable: true, filter: true, editable: true, width: 90 },
+    { headerName: 'Name', field: 'productname', sortable: true, filter: true, editable: true, width: 100 },
+    { headerName: 'Name(A)', field: 'productnameArabic', sortable: true, filter: true, editable: true, width: 100 },
+    { headerName: 'Warehouse', field: 'warehouse', sortable: true, filter: true, editable: true, width: 100 },
+    { headerName: 'Unit', field: 'unit', sortable: true, filter: true, editable: true, width: 100 },
+    { headerName: 'Available in RWH', field: 'availability', sortable: true, filter: true, editable: true, width: 145 },
+    { headerName: 'Availability in Branch', field: 'availabilitybranch', sortable: true, filter: true, editable: true, width: 145 },
+    { headerName: 'Requested Quantity', field: 'requestedQuantity', sortable: true, filter: true, editable: true, width: 160 },
+    { headerName: 'Status', field: 'status', sortable: true, filter: true, editable: true, width: 100 },
+    { headerName: 'Transfer Order No', field: 'transferno', sortable: true, filter: true, editable: true, width: 130 },
+    { headerName: 'Comments', field: 'comments', sortable: true, filter: true, editable: true, width: 100 }
   ];
 
   rowData = [
-    { all: " ", checkboxSelection: true, itemno: '1', productname: 'Rice', productnameArabic: 'qqqqq', toWarehouse: 'XYZ', requiredQuantity: '100', reason:'no stock'},
-    { all: " ", checkboxSelection: true, itemno: '1', productname: 'Rice', productnameArabic: 'qqqqq', toWarehouse: 'XYZ', requiredQuantity: '100', reason: 'no stock' },
-    { all: " ", checkboxSelection: true, itemno: '1', productname: 'Rice', productnameArabic: 'qqqqq', toWarehouse: 'XYZ', requiredQuantity: '100', reason: 'no stock' },
-    { all: " ", checkboxSelection: true, itemno: '1', productname: 'Rice', productnameArabic: 'qqqqq', toWarehouse: 'XYZ', requiredQuantity: '100', reason: 'no stock' },
-    { all: " ", checkboxSelection: true, itemno: '1', productname: 'Rice', productnameArabic: 'qqqqq', toWarehouse: 'XYZ', requiredQuantity: '100', reason: 'no stock' },
-    { all: " ", checkboxSelection: true, itemno: '1', productname: 'Rice', productnameArabic: 'qqqqq', toWarehouse: 'XYZ', requiredQuantity: '100', reason: 'no stock' },
-    { all: " ", checkboxSelection: true, itemno: '1', productname: 'Rice', productnameArabic: 'qqqqq', toWarehouse: 'XYZ', requiredQuantity: '100', reason: 'no stock' },
+    { all: " ", checkboxSelection: true, itemno: '1', productname: 'Rice', productnameArabic: 'qqqqq', warehouse: 'Warehouse1', unit: '100', availability: '120', availabilitybranch: '10', requestedQuantity: '100', status: 'Active', transferno: 'TN101', comments: 'no comments' },
+    { all: " ", checkboxSelection: true, itemno: '2', productname: 'Rice', productnameArabic: 'qqqqq', warehouse: 'Warehouse1', unit: '100', availability: '120', availabilitybranch: '10', requestedQuantity: '100', status: 'Active', transferno: 'TN101', comments: 'no comments' },
+    { all: " ", checkboxSelection: true, itemno: '3', productname: 'Rice', productnameArabic: 'qqqqq', warehouse: 'Warehouse1', unit: '100', availability: '120', availabilitybranch: '10', requestedQuantity: '100', status: 'Active', transferno: 'TN101', comments: 'no comments' },
+    { all: " ", checkboxSelection: true, itemno: '4', productname: 'Rice', productnameArabic: 'qqqqq', warehouse: 'Warehouse1', unit: '100', availability: '120', availabilitybranch: '10', requestedQuantity: '100', status: 'Active', transferno: 'TN101', comments: 'no comments' },
+    { all: " ", checkboxSelection: true, itemno: '5', productname: 'Rice', productnameArabic: 'qqqqq', warehouse: 'Warehouse1', unit: '100', availability: '120', availabilitybranch: '10', requestedQuantity: '100', status: 'Active', transferno: 'TN101', comments: 'no comments' },
+    { all: " ", checkboxSelection: true, itemno: '6', productname: 'Rice', productnameArabic: 'qqqqq', warehouse: 'Warehouse1', unit: '100', availability: '120', availabilitybranch: '10', requestedQuantity: '100', status: 'Active', transferno: 'TN101', comments: 'no comments' },
+
 
   ];
 
@@ -59,11 +63,11 @@ export class ItemRequestComponent {
 
   rowData1 = [
     { all: " ", checkboxSelection: true, requestno: '1', requestname: 'Rice', createdby: 'Fateh', requesteddata: '15-02-2017', requestingwarehouse: 'No details found', submitteddata: '15-02-2017', status: 'Active' },
-    { all: " ", checkboxSelection: true, requestno: '1', requestname: 'Rice', createdby: 'Fateh', requesteddata: '15-02-2017', requestingwarehouse: 'No details found', submitteddata: '15-02-2017', status: 'Active' },
-    { all: " ", checkboxSelection: true, requestno: '1', requestname: 'Rice', createdby: 'Fateh', requesteddata: '15-02-2017', requestingwarehouse: 'No details found', submitteddata: '15-02-2017', status: 'Active' },
-    { all: " ", checkboxSelection: true, requestno: '1', requestname: 'Rice', createdby: 'Fateh', requesteddata: '15-02-2017', requestingwarehouse: 'No details found', submitteddata: '15-02-2017', status: 'Active' },
-    { all: " ", checkboxSelection: true, requestno: '1', requestname: 'Rice', createdby: 'Fateh', requesteddata: '15-02-2017', requestingwarehouse: 'No details found', submitteddata: '15-02-2017', status: 'Active' },
-    { all: " ", checkboxSelection: true, requestno: '1', requestname: 'Rice', createdby: 'Fateh', requesteddata: '15-02-2017', requestingwarehouse: 'No details found', submitteddata: '15-02-2017', status: 'Active' },
+    { all: " ", checkboxSelection: true, requestno: '2', requestname: 'Rice', createdby: 'Fateh', requesteddata: '15-02-2017', requestingwarehouse: 'No details found', submitteddata: '15-02-2017', status: 'Active' },
+    { all: " ", checkboxSelection: true, requestno: '3', requestname: 'Rice', createdby: 'Fateh', requesteddata: '15-02-2017', requestingwarehouse: 'No details found', submitteddata: '15-02-2017', status: 'Active' },
+    { all: " ", checkboxSelection: true, requestno: '4', requestname: 'Rice', createdby: 'Fateh', requesteddata: '15-02-2017', requestingwarehouse: 'No details found', submitteddata: '15-02-2017', status: 'Active' },
+    { all: " ", checkboxSelection: true, requestno: '5', requestname: 'Rice', createdby: 'Fateh', requesteddata: '15-02-2017', requestingwarehouse: 'No details found', submitteddata: '15-02-2017', status: 'Active' },
+    { all: " ", checkboxSelection: true, requestno: '6', requestname: 'Rice', createdby: 'Fateh', requesteddata: '15-02-2017', requestingwarehouse: 'No details found', submitteddata: '15-02-2017', status: 'Active' },
 
   ];
 }

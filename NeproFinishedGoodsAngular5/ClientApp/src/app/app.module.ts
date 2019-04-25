@@ -17,7 +17,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RequestControlComponent } from './request-control/request-control.component';
 import { ItemRequestComponent } from './item-request/item-request.component';
-
+import { ItemRequestReceiveComponent } from './item-request-receive/item-request-receive.component';
 import { DummyComponent } from './dummy/dummy.component';
 import { UserComponent } from './user/user.component';
 import { UserAccount } from './Services/AccountService';
@@ -33,7 +33,7 @@ import { HttpModule } from '@angular/http';
     FooterComponent,     
     RequestControlComponent,
     ItemRequestComponent,
-   
+    ItemRequestReceiveComponent,
     LoginComponent,
     DummyComponent,
     UserComponent
@@ -46,7 +46,7 @@ import { HttpModule } from '@angular/http';
       { path: '', component: ItemRequestComponent, pathMatch: 'full' },
       { path: 'itemRequest', component: ItemRequestComponent },
       { path: 'requestControl', component: RequestControlComponent },
-      
+      { path: 'item-request-receive', component: ItemRequestReceiveComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'dummy', component: DummyComponent },  
       { path: 'login', component: LoginComponent },

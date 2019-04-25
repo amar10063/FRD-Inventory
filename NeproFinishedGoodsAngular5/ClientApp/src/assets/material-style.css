@@ -7718,7 +7718,7 @@ form {
 	padding-left: 0;
 	padding-right: 0;
 	border-radius: 0;
-	font-size: 14px
+	font-size: 12px
 }
 .bmd-form-group.is-focused .form-control, .form-control:focus {
 	background-size: 100% 100%, 100% 100%;
