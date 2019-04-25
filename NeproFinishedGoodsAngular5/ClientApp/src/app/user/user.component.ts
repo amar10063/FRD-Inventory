@@ -5,6 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
 import { UserModel } from '../Models/UserModel';
+import { ColumnApi, GridApi } from 'ag-grid-community';
+
 
 @Component({
     selector: 'app-user',
@@ -13,7 +15,23 @@ import { UserModel } from '../Models/UserModel';
 })
 /** user component*/
 export class UserComponent implements OnInit{
+
+  public show: boolean = false;
+  public hide: boolean = true;
+
+  showhide() {
+    this.show = true;
+    this.hide = false;
+   
+  }
+  showhide2() {
+    this.show = false;
+    this.hide = true;
+    
+  }
     /** user ctor */
+  addressApi: GridApi[];
+  addressColumnApi: ColumnApi;
   UserRes: UserModel[];
   myAppUrl: string = "";
   userForm: FormGroup;
@@ -28,14 +46,19 @@ export class UserComponent implements OnInit{
   ngOnInit() {
     this.userForm = this.formbuilder.group({
       username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+
+      emailid: ['', [Validators.required, Validators.email]],
+
       password: ['', [Validators.required, Validators.minLength(6)]],
       cpassword: ['', Validators.required],
       userpin: ['', Validators.required],
       StorePicker: ['', Validators.required],
       InventoryController: ['', Validators.required]
+       
     });
 
+    
+    this.BindUserGrid();
 
   }
   get f() { return this.userForm.controls; }
@@ -45,11 +68,9 @@ export class UserComponent implements OnInit{
    
     if (!this.userForm.valid) {
       return;
-    }   
 
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.userForm.value)); 
+    } 
 
-   
     //this._employeeService.saveUser(this.userForm.value)
     //  .subscribe(() => {
     //    alert('Data saved Successfully');
@@ -58,8 +79,10 @@ export class UserComponent implements OnInit{
     //  });
     this.http.post(this.myAppUrl + 'api/controller/CreateUser', this.userForm.value).subscribe((data) => {
       
-      this.UserRes = data['_body'];
-      alert(this.UserRes);
+      this.BindUserGrid();
+      
+      alert("User Registered successfully");
+     // gridOptions.api.setRowData(gridOptions.rowData1)
        this.userForm.reset();
 
       });
@@ -67,32 +90,58 @@ export class UserComponent implements OnInit{
     
    
   }
+
+  gridOptions = {
+    onRowDoubleClicked: this.doSomething
+  }
+
+  doSomething(row) {
+    var temp = row.data;
+   
+    // this.userForm.get('username').setValue(temp.userName);
+   // this.userForm.controls['username'].setValue(temp.userName);
+    //(<FormControl>this.userForm.controls['username']).setValue(temp.userName);
+    //this.userForm.value.username.setValue(temp.userName);
+    this.hide = true;
+    alert(this.hide);
+    alert(temp.userName);
+}
+
+  BindUserGrid() {
+
+    this.http.get(this.myAppUrl + 'api/controller/BindUserGrid').subscribe((data) => {
+
+      this.UserRes = data.json();
+      this.rowData1 = this.UserRes;
+     });
+
+
+  }
+
+  onAddressGridReady(params) {
+    this.addressApi = params.api;
+    this.addressColumnApi = params.columnApi;   
+  }
+
+
   errorHandler(error: Response) {
     console.log(error);
     return Observable.throw(error);
   }
 
 
+
   columnDefs1 = [
     { headerName: "All", checkboxSelection: true, field: "all", width: 60 },
-    { headerName: 'User Name', field: 'username', sortable: true, filter: true, width: 145 },
-    { headerName: 'E-mail', field: 'email', sortable: true, filter: true, width: 170 },   
-    { headerName: 'User Pin', field: 'userpin', sortable: true, filter: true, width: 130 },
-    { headerName: 'Controller', field: 'controller', sortable: true, filter: true, width: 160 },
-    { headerName: 'Store Picker', field: 'storepicker', sortable: true, filter: true, width: 180 },
-    { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 80 }
+    { headerName: 'User Name', field: 'userName', sortable: true, filter: true, width: 200 },
+    { headerName: 'E-mail', field: 'emailId', sortable: true, filter: true, width: 220 },  
+    { headerName: 'User Pin', field: 'userPin', sortable: true, filter: true, width: 200},
+    { headerName: 'Controller', field: 'inventoryController', sortable: true, filter: true, width: 155 },
+    { headerName: 'Store Picker', field: 'storePicker', sortable: true, filter: true, width: 155 },
+    { headerName: 'Status', field: 'status', sortable: true, filter: true, width: 190 }
+ ];
 
+  rowData1 = [];
+ }
 
-
-  ];
-
-  rowData1 = [
-    { all: " ", checkboxSelection: true, username: 'Amar', email: 'amar@gmail.com', userpin: '12345', controller: 'Y', storepicker: 'N',  status: 'Active' },
-    { all: " ", checkboxSelection: true, username: 'Amar', email: 'amar@gmail.com', userpin: '12345', controller: 'Y', storepicker: 'N', status: 'Active' },
-    { all: " ", checkboxSelection: true, username: 'Amar', email: 'amar@gmail.com', userpin: '12345', controller: 'Y', storepicker: 'N', status: 'Active' },
-    { all: " ", checkboxSelection: true, username: 'Amar', email: 'amar@gmail.com', userpin: '12345', controller: 'Y', storepicker: 'N', status: 'Active' },
-    { all: " ", checkboxSelection: true, username: 'Amar', email: 'amar@gmail.com', userpin: '12345', controller: 'Y', storepicker: 'N', status: 'Active' },
-    
-  ];
-}
 
