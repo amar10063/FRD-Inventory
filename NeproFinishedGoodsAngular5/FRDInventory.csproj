@@ -33,16 +33,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\Models\UserModel.ts" />
     <None Remove="ClientApp\src\app\Services\AccountService.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Encryption">
-      <HintPath>..\..\..\VSS\SatyendarYadav\DLL\Encryption.dll</HintPath>
+
+      <HintPath>bin\Debug\netcoreapp2.1\Encryption.dll</HintPath>
+
     </Reference>
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\Models\UserModel.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Services\AccountService.ts" />
   </ItemGroup>
 
