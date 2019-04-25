@@ -88,13 +88,13 @@ namespace FRDInventory.Models
                 throw;
             }
         }
-        public List<TblUserLogin> BindGrid()
+        public List<GetUserData> BindGrid()
         {
             try            {
 
                 FRDInventoryContext db1 = new FRDInventoryContext();
                 {
-                List<TblUserLogin> list = db1.TblUserLogin.FromSql(@"SP_Login @QueryType",
+                List<GetUserData> list = db1.Set<GetUserData>().AsNoTracking().FromSql(@"SP_Login @QueryType",
                     new SqlParameter("@QueryType", "BindUserGrid")).ToList();
                     return list;
                 }
