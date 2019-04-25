@@ -16,8 +16,9 @@ namespace FRDInventory.Models
         }
 
         public virtual DbSet<TblUserLogin> TblUserLogin { get; set; }
-        
-       
+        public virtual DbSet<GetUserData> GetUserData { get; set; }
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -29,6 +30,7 @@ namespace FRDInventory.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
             modelBuilder.Entity<TblUserLogin>(entity =>
             {
                 entity.HasKey(e => e.UserId);

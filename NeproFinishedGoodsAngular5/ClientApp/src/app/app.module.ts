@@ -43,7 +43,7 @@ import { HttpModule } from '@angular/http';
     HttpClientModule, HttpModule, AgGridModule.withComponents([]),
     FormsModule, ReactiveFormsModule, BrowserAnimationsModule, TreeViewModule,
     RouterModule.forRoot([
-      { path: '', component: ItemRequestComponent, pathMatch: 'full' },
+      { path: '', component: LoginComponent, pathMatch: 'full' },
       { path: 'itemRequest', component: ItemRequestComponent },
       { path: 'requestControl', component: RequestControlComponent },
       { path: 'item-request-receive', component: ItemRequestReceiveComponent },
