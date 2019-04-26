@@ -103,7 +103,7 @@ export class UserComponent implements OnInit{
     //(<FormControl>this.userForm.controls['username']).setValue(temp.userName);
     //this.userForm.value.username.setValue(temp.userName);
     this.hide = true;
-    alert(this.hide);
+   // alert(this.hide);
     alert(temp.userName);
 }
 
