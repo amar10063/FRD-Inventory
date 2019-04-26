@@ -39,9 +39,7 @@
 
   <ItemGroup>
     <Reference Include="Encryption">
-
-      <HintPath>bin\Debug\netcoreapp2.1\Encryption.dll</HintPath>
-
+      <HintPath>..\..\..\DLL\Encryption.dll</HintPath>
     </Reference>
   </ItemGroup>
 
