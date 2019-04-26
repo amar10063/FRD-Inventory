@@ -17,12 +17,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RequestControlComponent } from './request-control/request-control.component';
 import { ItemRequestComponent } from './item-request/item-request.component';
-<<<<<<<<< Temporary merge branch 1
-
-
-=========
 import { ItemRequestReceiveComponent } from './item-request-receive/item-request-receive.component';
->>>>>>>>> Temporary merge branch 2
 import { DummyComponent } from './dummy/dummy.component';
 import { UserComponent } from './user/user.component';
 import { UserAccount } from './Services/AccountService';
